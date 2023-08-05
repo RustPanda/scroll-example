@@ -18,7 +18,6 @@ struct Dist;
 async fn main() {
     let app = Router::new()
         .route("/qrcode", get(qrcode_gen))
-        .route("/qrcode.png", get(qrcode_gen))
         .fallback(static_handler);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
@@ -33,7 +32,7 @@ async fn qrcode_gen() -> Response<axum::body::Body> {
     let data = qrcode_generator::to_png_to_vec(
         format!("Server run on: http://{local_ip}:8080"),
         QrCodeEcc::Low,
-        1024,
+        300,
     )
     .unwrap();
 
