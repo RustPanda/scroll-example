@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: rgb(64, 159, 127);
+}
+
+main {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+main > section {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(124, 75, 169);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+main > section:nth-child(odd) {
+    background-color: rgb(64, 159, 127);
+}
+
+main > section > div {
+    font-size: 80px;
+    color: white;
+}
+
+.qrcode {
+    position: absolute;
+    height: 15em;
+    left: 10vh;
+    top:50%;
+    transform: translate(0, -50%);
+    border-radius: 5px;
+    visibility: hidden;
+}
+
+@media screen and (min-width: 900px) {
+    .qrcode {
+        visibility: inherit;
+    }
+}
