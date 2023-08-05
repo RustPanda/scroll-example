@@ -32,6 +32,7 @@ main > section > div {
 
 .qrcode {
     position: absolute;
+    width: 15em;
     height: 15em;
     left: 10vh;
     top:50%;
